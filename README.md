@@ -1,7 +1,5 @@
 # JDBC_Movie_Store
-JDBC MVC project with MySQL connection
-
-MVC projects in JDBC
+JDBC eCommerce site - MVC project with MySQL connection.
 
 Specs:
 Database: MySQL 5.7.16, for osx10.11
@@ -22,4 +20,4 @@ Projects includes:
 -Custom form validation
 -CRUD and Search functionality
 -Styling with BootFaces
--SessionScoped dependency injection
+-Session scoped shopping cart functionality

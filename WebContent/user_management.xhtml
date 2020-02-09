@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:b="http://bootsfaces.net/ui"
+      	xmlns:h="http://xmlns.jcp.org/jsf/html"
+      	xmlns:f="http://xmlns.jcp.org/jsf/core"
+      	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      	
+<f:metadata>
+	  <f:event type="preRenderView" listener="#{customerController.loadCustomers()}"/>
+</f:metadata>
+
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet library="css" name="styles.css"  />
+	<title></title>
+</h:head>
+
+<h:body>
+
+<b:container>
+
+           
+<div class="heading">
+            <b:row>
+                <b:column span="12">
+       				<h3>The Movie Store</h3>
+       				
+       				<b:form>
+            		<b:commandLink action="user_management" value="Customer User Management"/>
+            		<br/>
+            		<b:commandLink action="index" value="Home" />
+       			  </b:form>
+                </b:column>
+               
+            </b:row>
+          </div> 
+          
+          
+<div class="center-box" >
+
+	<b:row>
+		<b:column span="12">
+		
+		
+			<h:form>
+		
+				<b:inputText value="#{customerController.theSearchName}" id="theSearchName" label="Search:"/>
+				<b:commandButton value="Search" action="user_management?faces-redirect=true"/>            
+            
+            </h:form>
+			
+			<h:form>
+			
+				<b:button value="Add Customer" outcome="registration"/>
+			
+	
+			  	<b:dataTable value="#{customerController.customers}"
+			  				paginated="false"
+			  				info="false"
+			  				searching="false"
+			               	var="tempCustomer">
+				    <b:dataTableColumn value="#{tempCustomer.id}" label="ID" orderable="false"/>
+				    <b:dataTableColumn value="#{tempCustomer.firstName}" label="First Name" orderable="false"/>
+				    <b:dataTableColumn value="#{tempCustomer.lastName}" label="Last Name" orderable="false"/>
+				    <b:dataTableColumn value="#{tempCustomer.phone}"  label="Phone Number" orderable="false"/>
+				    <b:dataTableColumn value="#{tempCustomer.address}" label="Address" orderable="false"/>
+				    <b:dataTableColumn value="#{tempCustomer.email}" label="Email" orderable="false"/>
+				    <b:dataTableColumn value="#{tempCustomer.username}" label="Username" orderable="false"/>
+				    <b:dataTableColumn value="#{tempCustomer.profileVisibility}" label="Profile Visibility" orderable="false"/>
+				    
+				    <b:dataTableColumn label="Update" orderable="false">
+						<b:commandButton value="Update" action="#{customerController.loadCustomer(tempCustomer.id)}" />				    
+					</b:dataTableColumn>
+				    
+				    <b:dataTableColumn label="Delete" orderable="false">
+				    	<b:commandButton value="Delete" action="#{customerController.deleteCustomer(tempCustomer.id)}"/>
+				    </b:dataTableColumn>
+				  				    
+			  	</b:dataTable>
+			  
+			</h:form>
+			  
+		</b:column>
+
+	</b:row>
+</div>
+
+</b:container>
+
+</h:body>
+
+</html>

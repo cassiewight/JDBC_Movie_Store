@@ -1,0 +1,6 @@
+.DS_Store
+META-INF/
+WEB_INF/
+build/
+resources/img/
+resources/js/

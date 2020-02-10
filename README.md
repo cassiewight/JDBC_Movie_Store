@@ -2,11 +2,13 @@
 JDBC eCommerce site - MVC project with MySQL connection.
 
 Specs:
+
 Database: MySQL 5.7.16, for osx10.11
 Server: Tomcat 9.0
 IDE: Eclipse 4.13.0
 
 Dependencies:
+
 javax.faces-2.2.8
 mysql-connector-java-5.1.48
 BootsFaces-OPS-default-1.4.2
